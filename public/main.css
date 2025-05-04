@@ -1,0 +1,108 @@
+/* CSS Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1.6;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	background-color: #242629;
+	color: #f2f2f2;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+header,
+main,
+nav {
+	inline-size: 100%;
+}
+
+.wrapper {
+	inline-size: 88%;
+	max-inline-size: 1420px;
+	margin: 0 auto;
+}
+
+button {
+	outline: none;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	color: #f2f2f2;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+header {
+	border-block-end: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header__wrapper {
+	block-size: 4.8rem;
+	justify-content: center;
+}
+
+.logo {
+	font-size: 1.25rem;
+}
+
+.nav__right {
+	gap: 1rem;
+}
+
+.nav__list {
+	gap: 1rem;
+}
