@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
+
 /* CSS Reset */
 * {
 	margin: 0;
@@ -27,6 +29,10 @@ body {
 	vertical-align: baseline;
 	background-color: #242629;
 	color: #f2f2f2;
+	font-family: "Bricolage Grotesque", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+		"Open Sans", "Helvetica Neue", sans-serif;
+	font-size: 1rem;
 }
 
 ol,
@@ -50,6 +56,12 @@ q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+img,
+svg {
+	max-width: 100%;
+	display: block;
 }
 
 header,
@@ -86,7 +98,29 @@ a {
 	justify-content: space-between;
 }
 
+.btn {
+	display: inline-block;
+	background-color: #00b87a;
+	padding: 0.675rem 1.25rem;
+	font-size: 1rem;
+	border-radius: 2px;
+	border: 1px solid #00ffaa;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+	background-color: #00c785;
+}
+
 header {
+	position: fixed;
+	inset-block-start: 0;
+	inset-inline-start: 0;
+	inline-size: 100%;
+	background-color: hsla(216, 6%, 15%, 0.616);
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
 	border-block-end: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -100,9 +134,62 @@ header {
 }
 
 .nav__right {
-	gap: 1rem;
+	gap: 2.5rem;
 }
 
 .nav__list {
-	gap: 1rem;
+	gap: 2.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.github {
+	background-color: #00b87a;
+	padding: 0.675rem 1.25rem;
+	font-size: 1rem;
+	border-radius: 2px;
+	border: 1px solid #00ffaa;
+	transition: background-color 0.3s ease;
+}
+
+.github:hover {
+	background-color: #00c785;
+}
+
+.github a {
+	color: #242629;
+	gap: 0.375rem;
+}
+
+.github svg,
+.btn svg {
+	inline-size: 1rem;
+	fill: #242629;
+}
+
+/* Hero Page */
+main {
+	padding-block: 4.8rem;
+}
+
+.main__wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	gap: 2rem;
+	padding-block: 5.6rem;
+}
+
+.hero__left h1 {
+	font-size: 3.675rem;
+	line-height: 1.1;
+}
+
+.hero__left p {
+	max-width: 45ch;
+	margin-block: 1rem;
+}
+
+.hero__btns {
+	gap: 0.5rem;
 }
