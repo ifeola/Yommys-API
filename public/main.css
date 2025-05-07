@@ -8,13 +8,13 @@
 }
 
 :root {
-	--primary-color: #242629;
+	--primary-color: #050017;
 	--white-color: #ffffff;
 	--bg-color: #242629;
 	--secondary-color: #0052ce;
 	--secondary-v2-color: #0052ce;
-	--accent-color: #00d18b;
-	--accent-v2-color: #006946;
+	--accent-color: #976fe0;
+	--accent-v2-color: #8350d2;
 	--border: hsla(0, 0%, 79%, 0.651);
 }
 
@@ -44,6 +44,10 @@ body {
 		BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
 		"Open Sans", "Helvetica Neue", sans-serif;
 	font-size: 1rem;
+}
+
+main {
+	block-size: 100%;
 }
 
 ol,
@@ -95,6 +99,15 @@ button {
 	display: block;
 }
 
+h1,
+p {
+	text-wrap: pretty;
+}
+
+p {
+	max-inline-size: 45ch;
+}
+
 a {
 	text-decoration: none;
 	color: var(--primary-color);
@@ -128,10 +141,15 @@ h2 {
 }
 
 .btn:hover {
-	background-color: #00c785;
+	background-color: var(--accent-v2-color);
 	box-shadow: 0px 0px rgb(0, 0, 0);
 }
 
+section + section {
+	border-top: 1px solid rgba(0, 0, 0, 0.103);
+}
+
+/* Header */
 header {
 	position: fixed;
 	inset-block-start: 0;
@@ -168,14 +186,14 @@ header {
 	font-weight: 500;
 	font-size: 1rem;
 	border-radius: 4px;
-	border: 2px solid var(--accent-v2-color);
+	border: 2px solid var(--primary-color);
 	box-shadow: 4px 4px rgb(0, 0, 0);
 	transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .github:hover {
 	box-shadow: 0px 0px rgb(0, 0, 0);
-	background-color: #00c785;
+	background-color: var(--accent-v2-color);
 }
 
 .github a {
@@ -189,18 +207,14 @@ header {
 	fill: #242629;
 }
 
-section {
-	padding-block: 4.2rem;
-}
-
 /* Hero Page */
 
-.hero-wrapper {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+.hero__wrapper {
+	block-size: 100vh;
+	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 2rem;
-	padding-block: 9.6rem;
 }
 
 .hero__left h1 {
@@ -212,6 +226,10 @@ section {
 	max-width: 45ch;
 	margin-block: 1rem;
 	line-height: 1.6;
+}
+
+.hero__image {
+	inline-size: 100%;
 }
 
 .hero__btns {
@@ -230,11 +248,11 @@ section {
 }
 
 /* Trial wrapper */
-.trial-wrapper {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+.trial__wrapper {
+	display: flex;
 	align-items: center;
 	gap: 2rem;
+	padding-block: 4.8rem;
 }
 
 .trial__right p {

@@ -1,5 +1,6 @@
 const express = require("express");
-const products = require("./products.js");
+const products = require("./data/products.js");
+const contacts = require("./data/contacts.js");
 const path = require("path");
 
 const app = express();
@@ -21,6 +22,11 @@ app.get("/", (request, response) => {
 // Get all products
 app.get("/api/products", (request, response) => {
 	response.json(products);
+});
+
+// Get all contacts
+app.get("/api/contacts", (request, response) => {
+	response.json(contacts);
 });
 
 // Get product by ID
