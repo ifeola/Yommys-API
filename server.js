@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs").promises;
 const products = require("./data/products.js");
 const contacts = require("./data/contacts.js");
 const path = require("path");
@@ -24,13 +25,35 @@ app.get("/api/products", (request, response) => {
 	response.json(products);
 });
 
+// Get Product by ID
+app.get("/api/products/:id", (request, response) => {
+	const { id: requestedId } = request.params; // requestedId is a string, e.g., "SKU20050"
+
+	// Optional: Validate if the ID should not be empty
+	// if (!requestedId || requestedId.trim() === "") {
+	//     return response.status(400).json({ message: "Product ID cannot be empty." });
+	// }
+
+	// Find the product by its string ID.
+	// This assumes 'product.id' in your 'products' array is also a string.
+	const product = products.find((product) => product.id === requestedId);
+
+	if (!product) {
+		// If product is undefined, it means no product with that ID was found.
+		return response.status(404).json({ message: "Product not found" });
+	}
+
+	// Product was found, send it in the response with a 200 OK status (default for .json).
+	return response.json(product);
+});
+
 // Get all contacts
 app.get("/api/contacts", (request, response) => {
 	response.json(contacts);
 });
 
-// Get product by ID
-app.get("/api/products/:id", (request, response) => {});
+// Get contact by ID
+app.get("/api/contacts/:id", (request, response) => {});
 
 app.listen(PORT, () => {
 	console.log(`Server running on localhost:${PORT}`);
