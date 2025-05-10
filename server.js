@@ -12,11 +12,11 @@ const PORT = process.env.PORT || 3000;
 // without you having to create specific routes for each file.
 // path.join(__dirname, 'public') creates an absolute path to the public folder,
 // which is safer than using a relative path.
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname)));
 
 // Go to Homepage
 app.get("/", (request, response) => {
-	const index = path.join(__dirname, "public", "index.html");
+	const index = path.join(__dirname, "index.html");
 	response.sendFile(index);
 });
 
