@@ -53,7 +53,26 @@ app.get("/api/contacts", (request, response) => {
 });
 
 // Get contact by ID
-app.get("/api/contacts/:id", (request, response) => {});
+app.get("/api/contacts/:id", (request, response) => {
+	const { id: requestedId } = request.params; // requestedId is a string, e.g., "SKU20050"
+
+	// Optional: Validate if the ID should not be empty
+	// if (!requestedId || requestedId.trim() === "") {
+	//     return response.status(400).json({ message: "Contact ID cannot be empty." });
+	// }
+
+	// Find the contact by its string ID.
+	// This assumes 'contact.id' in your 'contacts' array is also a string.
+	const contact = contacts.find((contact) => contact.id === requestedId);
+
+	if (!contact) {
+		// If contact is undefined, it means no contact with that ID was found.
+		return response.status(404).json({ message: "Contact not found" });
+	}
+
+	// contact was found, send it in the response with a 200 OK status (default for .json).
+	return response.json(contact);
+});
 
 app.listen(PORT, () => {
 	console.log(`Server running on localhost:${PORT}`);
