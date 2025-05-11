@@ -6,6 +6,7 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const DOMAIN = process.env.URL || "https://yommy.netlify.app";
 
 // --- Serve Static Files ---
 // This line tells Express to serve any files found in the 'public' directory
