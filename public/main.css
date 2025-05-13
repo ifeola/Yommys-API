@@ -391,3 +391,20 @@ header {
 .trial__right p {
 	margin-block: 1rem;
 }
+
+/* Ready wrapper */
+.ready__wrapper {
+	gap: 2rem;
+	padding-block: 4.8rem;
+	flex-direction: row-reverse;
+}
+
+.ready__right p {
+	margin-block: 1rem;
+}
+
+@media (width < 720px) {
+	.ready__wrapper {
+		flex-direction: column-reverse;
+	}
+}
