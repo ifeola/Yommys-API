@@ -11,7 +11,7 @@
 	--primary-color: #050017;
 	--white-color: #ffffff;
 	--bg-color: #242629;
-	--secondary-color: #0052ce;
+	--secondary-color: #007cce;
 	--secondary-v2-color: #0052ce;
 	--accent-color: #976fe0;
 	--accent-v2-color: #8350d2;
@@ -383,12 +383,20 @@ header {
 }
 
 /* Trial wrapper */
+.trial {
+	background: linear-gradient(
+		275deg,
+		var(--accent-color),
+		var(--secondary-color)
+	);
+}
+
 .trial__wrapper {
 	gap: 2rem;
 	padding-block: 4.8rem;
 }
 
-.trial__right p {
+.section__right p {
 	margin-block: 1rem;
 }
 
@@ -399,12 +407,40 @@ header {
 	flex-direction: row-reverse;
 }
 
-.ready__right p {
-	margin-block: 1rem;
-}
-
 @media (width < 720px) {
 	.ready__wrapper {
 		flex-direction: column-reverse;
 	}
+}
+
+/* Resources */
+.resources__wrapper {
+	padding-block: 4.8rem;
+}
+
+.resources__list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+	gap: 2rem;
+	margin-block-start: 2rem;
+}
+
+.resources__item a {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	background-color: #ffffff;
+	box-shadow: 4px 4px rgb(0, 0, 0);
+	padding: 0.875rem 1.5rem;
+	border: 2px solid rgba(0, 0, 0, 0.425);
+	border-radius: 8px;
+}
+
+.resources__item svg {
+	max-inline-size: 100%;
+	inline-size: 3.2rem;
+}
+
+.resources__item span {
+	font-size: 1.8rem;
 }
