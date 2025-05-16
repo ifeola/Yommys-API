@@ -389,10 +389,18 @@ header {
 /* Trial wrapper */
 .trial {
 	background: linear-gradient(
-		275deg,
+		270deg,
 		var(--accent-color),
 		var(--secondary-color)
 	);
+
+	@media (width < 720px) {
+		background: linear-gradient(
+			225deg,
+			var(--accent-color),
+			var(--secondary-color)
+		);
+	}
 }
 
 .trial__wrapper {
@@ -420,10 +428,18 @@ header {
 /* Resources */
 .resources {
 	background: linear-gradient(
-		275deg,
+		270deg,
 		var(--accent-color),
 		var(--accent-v4-color)
 	);
+
+	@media (width < 720px) {
+		background: linear-gradient(
+			225deg,
+			var(--accent-color),
+			var(--accent-v4-color)
+		);
+	}
 }
 
 .resources__wrapper {
