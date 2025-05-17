@@ -412,6 +412,10 @@ header {
 	margin-block: 1rem;
 }
 
+.trial .btn {
+	background-color: var(--accent-v3-color);
+}
+
 /* Ready wrapper */
 .ready__wrapper {
 	gap: 2rem;
@@ -452,13 +456,14 @@ header {
 		auto-fill,
 		minmax(min(var(--min-grid-size), 100%), 1fr)
 	);
-	gap: 2rem;
+	gap: 1.225rem;
 	margin-block-start: 2rem;
 }
 
 .resources__item a {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	gap: 0.5rem;
 	background-color: #ffffff;
 	box-shadow: 4px 4px rgb(0, 0, 0);
@@ -466,6 +471,29 @@ header {
 	border: 2px solid rgb(0, 0, 0);
 	border-radius: 8px;
 	transition: box-shadow 0.3s ease-in;
+}
+
+.resources__item .api__content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+}
+
+.resources__item .api__texts span {
+	display: block;
+}
+
+.resources__item .api__texts .api__title {
+	font-size: 1.675rem;
+}
+
+.resources__item .api__texts .api__link {
+	font-size: 0.675rem;
+}
+
+.resources__item .arrow-btn {
+	inline-size: 1.875rem;
 }
 
 .resources__item a:hover {
