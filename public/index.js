@@ -8,18 +8,7 @@ hamburger.addEventListener("click", () => {
 // Placeholder for fetching data
 const dataPlaceholder = document.querySelector("#data-placeholder");
 const dropdown = document.getElementById("resource-select");
-
-dropdown.addEventListener("change", function () {
-	// 'this.value' gives the value of the selected option
-	// 'this.options[this.selectedIndex].text' gives the visible text of the selected option
-	if (this.value) {
-		display.textContent = `You selected: ${
-			this.options[this.selectedIndex].text
-		} (value: ${this.value})`;
-	} else {
-		display.textContent = "You have not selected anything yet.";
-	}
-});
+let url; // URL to fetch data from
 
 // This function fetches data from a given URL and returns the JSON response.
 const fetchData = async (url) => {
@@ -33,3 +22,14 @@ const fetchData = async (url) => {
 		console.error("Fetch error:", error);
 	}
 };
+
+dropdown.addEventListener("change", function () {
+	// 'this.value' gives the value of the selected option
+	// 'this.options[this.selectedIndex].text' gives the visible text of the selected option
+	if (this.value) {
+		url = `http://localhost:3000/api/${this.options[this.selectedIndex].text}`;
+		dataPlaceholder.innerHTML = fetchData(url);
+	} else {
+		display.textContent = "You have not selected anything yet.";
+	}
+});
