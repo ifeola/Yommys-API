@@ -555,4 +555,8 @@ select {
 	border-radius: 4px;
 	font-family: monospace;
 	overflow: auto;
+
+	@media (width < 720px) {
+		font-size: 0.675rem;
+	}
 }
