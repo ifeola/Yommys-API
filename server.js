@@ -2,6 +2,7 @@ const express = require("express");
 const fs = require("fs").promises;
 const products = require("./data/products.js");
 const contacts = require("./data/contacts.js");
+const posts = require("./data/posts.js");
 const path = require("path");
 
 const cors = require("cors"); // Import the cors middleware
@@ -54,6 +55,11 @@ app.get("/api/products/:id", (request, response) => {
 // Get all contacts
 app.get("/api/contacts", (request, response) => {
 	response.json(contacts);
+});
+
+// Get all posts
+app.get("/api/posts", (request, response) => {
+	response.json(posts);
 });
 
 // Get contact by ID
