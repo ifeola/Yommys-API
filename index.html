@@ -630,10 +630,27 @@
 					</div>
 				</section>
 
-				<section>
-					<code>
-						<span> Hello World </span>
-					</code>
+				<section class="placeholder">
+					<div class="wrapper placeholder__wrapper">
+						<h2>Try it yourself!</h2>
+						<p>Use the dropdown to get results for different resources.</p>
+						<label for="resource-select">Get API for:</label>
+						<select id="resource-select" class="resource-dropdown">
+							<option value="none" disabled selected>
+								Please choose an option
+							</option>
+							<option value="products">Products</option>
+							<option value="contacts">Contacts</option>
+							<option value="posts">Posts</option>
+							<option value="users">Users</option>
+							<option value="comments">Comments</option>
+							<option value="carts">Carts</option>
+							<option value="todos">Todos</option>
+						</select>
+						<div class="json__code">
+							<code id="data-placeholder"></code>
+						</div>
+					</div>
 				</section>
 			</main>
 		</div>
