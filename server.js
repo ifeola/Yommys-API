@@ -4,8 +4,12 @@ const products = require("./data/products.js");
 const contacts = require("./data/contacts.js");
 const path = require("path");
 
+const cors = require("cors"); // Import the cors middleware
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Option 1: Allow ALL origins (simple for development, but be more specific for production)
+app.use(cors());
 
 // --- Serve Static Files ---
 // This line tells Express to serve any files found in the 'public' directory
