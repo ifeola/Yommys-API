@@ -27,7 +27,9 @@ dropdown.addEventListener("change", function () {
 	// 'this.value' gives the value of the selected option
 	// 'this.options[this.selectedIndex].text' gives the visible text of the selected option
 	if (this.value) {
-		url = `http://localhost:3000/api/${this.options[this.selectedIndex].value}`;
+		url = `http://yommy-api.onrender.com/api/${
+			this.options[this.selectedIndex].value
+		}`;
 		console.log(url);
 		dataPlaceholder.innerHTML = fetchData(url);
 	} else {
