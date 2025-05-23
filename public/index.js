@@ -27,7 +27,9 @@ dropdown.addEventListener("change", async function () {
 	// 'this.value' gives the value of the selected option
 	// 'this.options[this.selectedIndex].text' gives the visible text of the selected option
 	if (this.value) {
-		url = `http://localhost:3000/api/${this.options[this.selectedIndex].value}`;
+		url = `http://yommy-api.onrender.com/api/${
+			this.options[this.selectedIndex].value
+		}`;
 		let result = await fetchData(url);
 		dataPlaceholder.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
 		console.log(fetchData(url));
