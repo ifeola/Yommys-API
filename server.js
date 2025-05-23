@@ -62,6 +62,28 @@ app.get("/api/posts", (request, response) => {
 	response.json(posts);
 });
 
+// Get post by ID
+app.get("/api/posts/:id", (request, response) => {
+	const { id: requestedId } = request.params; // requestedId is a string, e.g., "SKU20050"
+
+	// Optional: Validate if the ID should not be empty
+	if (!requestedId || requestedId.trim() === "") {
+		return response.status(400).json({ message: "Post ID cannot be empty." });
+	}
+
+	// Find the contact by its string ID.
+	// This assumes 'post.id' in your 'posts' array is also a string.
+	const post = posts.find((post) => post.id === requestedId);
+
+	if (!post) {
+		// If post is undefined, it means no post with that ID was found.
+		return response.status(404).json({ message: "Post not found" });
+	}
+
+	// post was found, send it in the response with a 200 OK status (default for .json).
+	return response.json(post);
+});
+
 // Get contact by ID
 app.get("/api/contacts/:id", (request, response) => {
 	const { id: requestedId } = request.params; // requestedId is a string, e.g., "SKU20050"
