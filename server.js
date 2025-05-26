@@ -109,3 +109,5 @@ app.get("/api/contacts/:id", (request, response) => {
 app.listen(PORT, () => {
 	console.log(`Server running on localhost:${PORT}`);
 });
+
+module.exports = PORT;
