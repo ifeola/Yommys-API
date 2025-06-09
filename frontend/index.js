@@ -1,6 +1,7 @@
-const PORT = require("./server.js").PORT; // Import the PORT from server.js
 const hamburger = document.querySelector(".hamburger");
 const mobileNav = document.querySelector(".mobile-nav-list");
+
+console.log(hamburger);
 
 hamburger.addEventListener("click", () => {
 	hamburger.classList.toggle("active");

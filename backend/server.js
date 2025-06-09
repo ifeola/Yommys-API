@@ -1,13 +1,16 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const fs = require("fs").promises;
 const products = require("./data/products.js");
 const contacts = require("./data/contacts.js");
 const posts = require("./data/posts.js");
 const path = require("path");
 
+dotenv.config();
+
 const cors = require("cors"); // Import the cors middleware
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // Option 1: Allow ALL origins (simple for development, but be more specific for production)
 app.use(cors());
@@ -17,17 +20,26 @@ app.use(cors());
 // without you having to create specific routes for each file.
 // path.join(__dirname, 'public') creates an absolute path to the public folder,
 // which is safer than using a relative path.
-app.use(express.static(path.join(__dirname)));
+/* // app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, "../frontend")));
 
 // Go to Homepage
 app.get("/", (request, response) => {
-	const index = path.join(__dirname, "index.html");
-	response.sendFile(index);
+	const index = path.join(__dirname, "../frontend/index.html");
+	console.log(index);
+	return response.sendFile(index);
+}); */
+
+// Serve all static files (HTML, CSS, JS, images) from frontend
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
 // Get all products
 app.get("/api/products", (request, response) => {
-	response.json(products);
+	return response.json(products);
 });
 
 // Get Product by ID
