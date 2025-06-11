@@ -1,14 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const fs = require("fs").promises;
-const products = require("./data/products.js");
-const contacts = require("./data/contacts.js");
-const posts = require("./data/posts.js");
 const path = require("path");
+const { default: connectDB } = require("./config/db.js");
+const cors = require("cors"); // Import the cors middleware
+const { default: Product } = require("./model/products.model.js");
 
 dotenv.config();
 
-const cors = require("cors"); // Import the cors middleware
 const app = express();
 const PORT = process.env.PORT;
 
@@ -20,15 +19,14 @@ app.use(cors());
 // without you having to create specific routes for each file.
 // path.join(__dirname, 'public') creates an absolute path to the public folder,
 // which is safer than using a relative path.
-/* // app.use(express.static(path.join(__dirname, "../frontend")));
+// app.use(express.static(path.join(__dirname, "../frontend")));
 app.use(express.static(path.join(__dirname, "../frontend")));
 
 // Go to Homepage
 app.get("/", (request, response) => {
 	const index = path.join(__dirname, "../frontend/index.html");
-	console.log(index);
 	return response.sendFile(index);
-}); */
+});
 
 // Serve all static files (HTML, CSS, JS, images) from frontend
 app.use(express.static(path.join(__dirname, "../frontend")));
@@ -38,8 +36,21 @@ app.get("/", (req, res) => {
 });
 
 // Get all products
-app.get("/api/products", (request, response) => {
-	return response.json(products);
+app.get("/api/products", async (request, response) => {
+	try {
+		const products = await Product.find({});
+		if (products.length <= 0)
+			return response.status(404).json({
+				success: false,
+				message: "No products found.",
+			});
+		return response.status(200).json(products);
+	} catch (error) {
+		return response.status(404).json({
+			success: false,
+			message: "Error fetching products from server.",
+		});
+	}
 });
 
 // Get Product by ID
@@ -119,7 +130,6 @@ app.get("/api/contacts/:id", (request, response) => {
 });
 
 app.listen(PORT, () => {
+	connectDB();
 	console.log(`Server running on localhost:${PORT}`);
 });
-
-module.exports = PORT;
